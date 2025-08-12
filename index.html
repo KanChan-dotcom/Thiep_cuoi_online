@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thiệp Cưới của Nam & Lan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1519741497674-611481863552') no-repeat center/cover;
+      text-align: center;
+      color: white;
+      margin: 0;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-top: 100px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 { font-size: 2.5em; margin: 0; }
+    p { font-size: 1.2em; }
+    .button {
+      background: #ffcccc;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nhạc nền -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>Thiệp Mời</h1>
+    <p>Kính mời bạn đến dự lễ cưới của:</p>
+    <h2>Nam ❤️ Lan</h2>
+    <p>Thời gian: 10h00 - 20/12/2025</p>
+    <p>Địa điểm: Nhà hàng Riverside Palace, TP.HCM</p>
+    <a class="button" href="https://goo.gl/maps/K6mLEc9h85Wk6nDK8" target="_blank">Xem bản đồ</a>
+  </div>
+
+  <!-- Hiệu ứng hoa rơi -->
+  <script>
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      flower.innerHTML = '🌸';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 5000);
+    }
+    setInterval(createFlower, 300);
+  </script>
+</body>
+</html>
