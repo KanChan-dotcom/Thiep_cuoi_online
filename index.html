@@ -2,78 +2,224 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Thiệp Cưới của Nam & Lan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp Cưới Nam & Lan</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://images.unsplash.com/photo-1519741497674-611481863552') no-repeat center/cover;
-      text-align: center;
-      color: white;
       margin: 0;
-      overflow: hidden;
+      background: #fff;
+      color: #333;
     }
-    .card {
-      background: rgba(0,0,0,0.6);
+    header {
+      background: url('https://images.unsplash.com/photo-1529634806980-2e63eae9d37f') no-repeat center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    header .content {
+      position: relative;
+      z-index: 2;
       padding: 20px;
-      border-radius: 15px;
-      display: inline-block;
-      margin-top: 100px;
-      animation: fadeIn 2s ease-in-out;
     }
-    h1 { font-size: 2.5em; margin: 0; }
-    p { font-size: 1.2em; }
-    .button {
-      background: #ffcccc;
-      padding: 10px 20px;
+    h1 { font-size: 3em; margin: 0; }
+    h2 { font-size: 1.8em; margin-top: 10px; }
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .story, .event, .gallery, .countdown, .thanks {
+      text-align: center;
+    }
+    .story p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+    .event-details {
+      background: #ffe6e6;
+      padding: 20px;
       border-radius: 10px;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
     }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .event-details p {
+      margin: 8px 0;
+      font-size: 1.1em;
     }
+    .map {
+      margin-top: 20px;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .gallery img {
+      width: 300px;
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .countdown-timer {
+      font-size: 2em;
+      margin-top: 20px;
+      color: #b30000;
+    }
+    footer {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    /* Hoa rơi */
     .flower {
       position: fixed;
       top: -50px;
       font-size: 24px;
       animation: fall linear infinite;
+      z-index: 9999;
     }
     @keyframes fall {
-      to {
-        transform: translateY(110vh);
+      to { transform: translateY(110vh); }
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2em; }
+      h2 { font-size: 1.4em; }
+      .story p, .event-details p {
+        font-size: 1em;
+      }
+      section {
+        padding: 30px 15px;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        height: 80vh;
+      }
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.2em; }
+      .countdown-timer {
+        font-size: 1.2em;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Nhạc nền -->
-  <audio autoplay loop>
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-  </audio>
 
-  <div class="card">
-    <h1>Thiệp Mời</h1>
-    <p>Kính mời bạn đến dự lễ cưới của:</p>
-    <h2>Nam ❤️ Lan</h2>
-    <p>Thời gian: 10h00 - 20/12/2025</p>
-    <p>Địa điểm: Nhà hàng Riverside Palace, TP.HCM</p>
-    <a class="button" href="https://goo.gl/maps/K6mLEc9h85Wk6nDK8" target="_blank">Xem bản đồ</a>
+<!-- Nhạc nền -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Trang chào -->
+<header>
+  <div class="content">
+    <h1>Nam ❤️ Lan</h1>
+    <h2>Ngày vui của chúng mình</h2>
+    <p>20/12/2025</p>
   </div>
+</header>
 
-  <!-- Hiệu ứng hoa rơi -->
-  <script>
-    function createFlower() {
-      const flower = document.createElement('div');
-      flower.classList.add('flower');
-      flower.style.left = Math.random() * 100 + 'vw';
-      flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      flower.innerHTML = '🌸';
-      document.body.appendChild(flower);
-      setTimeout(() => flower.remove(), 5000);
+<!-- Câu chuyện tình yêu -->
+<section class="story">
+  <h2>Chuyện tình của chúng tôi</h2>
+  <p>Chúng tôi gặp nhau vào một ngày nắng đẹp... từ ánh mắt đầu tiên, mọi thứ như định sẵn.
+     Trải qua những thăng trầm, chúng tôi đã cùng nhau viết nên câu chuyện tình yêu tuyệt đẹp,
+     và giờ đây, chúng tôi muốn chia sẻ khoảnh khắc hạnh phúc này với bạn.</p>
+</section>
+
+<!-- Thông tin sự kiện -->
+<section class="event">
+  <h2>Thông tin lễ cưới</h2>
+  <div class="event-details">
+    <p>⏰ Thời gian: 10h00 - 20/12/2025</p>
+    <p>📍 Địa điểm: Nhà hàng Riverside Palace, TP.HCM</p>
+  </div>
+  <div class="map">
+    <a href="https://goo.gl/maps/K6mLEc9h85Wk6nDK8" target="_blank">📌 Xem bản đồ</a>
+  </div>
+</section>
+
+<!-- Bộ sưu tập ảnh -->
+<section class="gallery">
+  <h2>Khoảnh khắc đẹp</h2>
+  <div class="gallery-container">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552" alt="Ảnh cưới 1">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Ảnh cưới 2">
+    <img src="https://images.unsplash.com/photo-1506499421500-7f5e64b8b746" alt="Ảnh cưới 3">
+  </div>
+</section>
+
+<!-- Đếm ngược -->
+<section class="countdown">
+  <h2>Đếm ngược tới ngày cưới</h2>
+  <div class="countdown-timer" id="countdown"></div>
+</section>
+
+<!-- Lời cảm ơn -->
+<section class="thanks">
+  <h2>Lời cảm ơn</h2>
+  <p>Chúng tôi rất mong bạn sẽ đến và cùng chia sẻ niềm vui này.
+     Sự hiện diện của bạn chính là món quà quý giá nhất.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Nam ❤️ Lan - 2025</p>
+</footer>
+
+<!-- Script hiệu ứng -->
+<script>
+  // Hoa rơi
+  function createFlower() {
+    const flower = document.createElement('div');
+    flower.classList.add('flower');
+    flower.style.left = Math.random() * 100 + 'vw';
+    flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    flower.innerHTML = '🌸';
+    document.body.appendChild(flower);
+    setTimeout(() => flower.remove(), 5000);
+  }
+  setInterval(createFlower, 300);
+
+  // Đếm ngược
+  const countdown = document.getElementById('countdown');
+  const weddingDate = new Date("Dec 20, 2025 10:00:00").getTime();
+
+  setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
+
+    if (distance < 0) {
+      countdown.innerHTML = "Hôm nay là ngày cưới!";
     }
-    setInterval(createFlower, 300);
-  </script>
+  }, 1000);
+</script>
+
 </body>
 </html>
